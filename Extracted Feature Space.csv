@@ -1,0 +1,407 @@
+Feature Name,Description,Data Type,Feature Type
+**General Packet Metadata**,,,
+Pck_size,Size of the packet in bytes.,int,packet-based
+Epoch_time,Packet capture timestamp as a Unix epoch time.,float,packet-based
+Timestamp,Human-readable timestamp (YYYY-MM-DD HH:MM:SS.ssssss).,str,packet-based
+payload_bytes,Length of the packet payload in bytes.,int,packet-based
+Entropy,Shannon entropy of the packet payload.,float,packet-based
+IAT,Inter-arrival time between consecutive packets.,float,statistical
+Burst_count,Number of packets in a burst (IAT < 0.1s).,int,statistical
+IAT_mean,Mean inter-arrival time for packets from the device.,float,statistical
+IAT_std,Standard deviation of inter-arrival times.,float,statistical
+Packet_freq,Packet frequency (1/IAT if IAT > 0).,float,statistical
+Direction_ratio,Ratio of outgoing to total packets for the device.,float,behavioral
+Time_Since_Prev_Frame,Time since the previous packet in the capture.,float,statistical
+Jitter,Difference between current IAT and mean IAT.,float,statistical
+Min_Elapsed_Time,Minimum elapsed time since the first packet for the device.,float,statistical
+Pck_Size_Sum,Sum of packet sizes for the device.,int,statistical
+Pck_Size_Min,Minimum packet size observed for the device.,int,statistical
+Pck_Size_Max,Maximum packet size observed for the device.,int,statistical
+Pck_Size_Med,Median packet size observed for the device.,int,statistical
+Pck_Size_Avg,Average packet size observed for the device.,float,statistical
+Pck_Size_Var,Variance of packet sizes for the device.,float,statistical
+Pck_Size_Q1,First quartile (25th percentile) of packet sizes.,int,statistical
+Pck_Size_Q3,Third quartile (75th percentile) of packet sizes.,int,statistical
+Pck_Size_IQR,Interquartile range (Q3 - Q1) of packet sizes.,int,statistical
+Pck_Size_Skew,Skewness of packet size distribution.,float,statistical
+Pck_Size_Kurt,Kurtosis of packet size distribution.,float,statistical
+Entropy_Min,Minimum entropy value observed for the device.,float,statistical
+Entropy_Q1,First quartile of entropy values for the device.,float,statistical
+Entropy_Var,Variance of entropy values for the device.,float,statistical
+Payload_Len_Q1,First quartile of payload lengths for the device.,int,statistical
+Payload_Len_Q3,Third quartile of payload lengths for the device.,int,statistical
+Payload_Len_IQR,Interquartile range of payload lengths for the device.,int,statistical
+Port_Diversity,Number of unique source and destination ports used by the device.,int,behavioral
+Burst_Duration_Mean,Mean duration of packet bursts for the device.,float,behavioral
+Burst_Duration_Var,Variance of packet burst durations for the device.,float,behavioral
+Hourly_Activity,Normalized packet counts per hour of the day (comma-separated).,str,behavioral
+Most_Freq_Spot,"Most frequent source and destination ports (format: sport:X,dport:Y).",str,behavioral
+Label,Device label from MAC mapping (or 'unknown').,str,packet-based
+MAC,Source MAC address of the packet.,str,packet-based
+Protocol_IP,"IP protocol number (e.g., 6 for TCP, 17 for UDP).",int,protocol-based
+Protocol_TCP,Indicator of TCP protocol usage (1 if TCP).,int,protocol-based
+Protocol_UDP,Indicator of UDP protocol usage (1 if UDP).,int,protocol-based
+Protocol_TCP_Ratio,Ratio of TCP packets to total packets for the device.,float,behavioral
+Protocol_UDP_Ratio,Ratio of UDP packets to total packets for the device.,float,behavioral
+Protocol_ICMP_Ratio,Ratio of ICMP packets to total packets for the device.,float,behavioral
+Highest_Layer,"Highest protocol layer observed (e.g., IP, TCP, HTTP, TLS).",str,protocol-based
+**Temporal Statistics**,,,
+Stream_1_Count,Number of packets in a stream within a 1-second window.,int,statistical
+Stream_1_Mean,Mean packet size in a stream within a 1-second window.,float,statistical
+Stream_1_Var,Variance of packet sizes in a stream within a 1-second window.,float,statistical
+Stream_5_Count,Number of packets in a stream within a 5-second window.,int,statistical
+Stream_5_Mean,Mean packet size in a stream within a 5-second window.,float,statistical
+Stream_5_Var,Variance of packet sizes in a stream within a 5-second window.,float,statistical
+Stream_10_Count,Number of packets in a stream within a 10-second window.,int,statistical
+Stream_10_Mean,Mean packet size in a stream within a 10-second window.,float,statistical
+Stream_10_Var,Variance of packet sizes in a stream within a 10-second window.,float,statistical
+Stream_15_Count,Number of packets in a stream within a 15-second window.,int,statistical
+Stream_15_Mean,Mean packet size in a stream within a 15-second window.,float,statistical
+Stream_15_Var,Variance of packet sizes in a stream within a 15-second window.,float,statistical
+Stream_20_Count,Number of packets in a stream within a 20-second window.,int,statistical
+Stream_20_Mean,Mean packet size in a stream within a 20-second window.,float,statistical
+Stream_20_Var,Variance of packet sizes in a stream within a 20-second window.,float,statistical
+Stream_25_Count,Number of packets in a stream within a 25-second window.,int,statistical
+Stream_25_Mean,Mean packet size in a stream within a 25-second window.,float,statistical
+Stream_25_Var,Variance of packet sizes in a stream within a 25-second window.,float,statistical
+Stream_30_Count,Number of packets in a stream within a 30-second window.,int,statistical
+Stream_30_Mean,Mean packet size in a stream within a 30-second window.,float,statistical
+Stream_30_Var,Variance of packet sizes in a stream within a 30-second window.,float,statistical
+Stream_35_Count,Number of packets in a stream within a 35-second window.,int,statistical
+Stream_35_Mean,Mean packet size in a stream within a 35-second window.,float,statistical
+Stream_35_Var,Variance of packet sizes in a stream within a 35-second window.,float,statistical
+Stream_40_Count,Number of packets in a stream within a 40-second window.,int,statistical
+Stream_40_Mean,Mean packet size in a stream within a 40-second window.,float,statistical
+Stream_40_Var,Variance of packet sizes in a stream within a 40-second window.,float,statistical
+Stream_45_Count,Number of packets in a stream within a 45-second window.,int,statistical
+Stream_45_Mean,Mean packet size in a stream within a 45-second window.,float,statistical
+Stream_45_Var,Variance of packet sizes in a stream within a 45-second window.,float,statistical
+Stream_50_Count,Number of packets in a stream within a 50-second window.,int,statistical
+Stream_50_Mean,Mean packet size in a stream within a 50-second window.,float,statistical
+Stream_50_Var,Variance of packet sizes in a stream within a 50-second window.,float,statistical
+Stream_55_Count,Number of packets in a stream within a 55-second window.,int,statistical
+Stream_55_Mean,Mean packet size in a stream within a 55-second window.,float,statistical
+Stream_55_Var,Variance of packet sizes in a stream within a 55-second window.,float,statistical
+Stream_60_Count,Number of packets in a stream within a 60-second window.,int,statistical
+Stream_60_Mean,Mean packet size in a stream within a 60-second window.,float,statistical
+Stream_60_Var,Variance of packet sizes in a stream within a 60-second window.,float,statistical
+IP_Src_1_Count,Number of packets from the source IP within a 1-second window.,int,statistical
+IP_Src_1_Mean,Mean packet size for the source IP within a 1-second window.,float,statistical
+IP_Src_1_Var,Variance of packet sizes for the source IP within a 1-second window.,float,statistical
+IP_Src_5_Count,Number of packets from the source IP within a 5-second window.,int,statistical
+IP_Src_5_Mean,Mean packet size for the source IP within a 5-second window.,float,statistical
+IP_Src_5_Var,Variance of packet sizes for the source IP within a 5-second window.,float,statistical
+IP_Src_10_Count,Number of packets from the source IP within a 10-second window.,int,statistical
+IP_Src_10_Mean,Mean packet size for the source IP within a 10-second window.,float,statistical
+IP_Src_10_Var,Variance of packet sizes for the source IP within a 10-second window.,float,statistical
+IP_Src_15_Count,Number of packets from the source IP within a 15-second window.,int,statistical
+IP_Src_15_Mean,Mean packet size for the source IP within a 15-second window.,float,statistical
+IP_Src_15_Var,Variance of packet sizes for the source IP within a 15-second window.,float,statistical
+IP_Src_20_Count,Number of packets from the source IP within a 20-second window.,int,statistical
+IP_Src_20_Mean,Mean packet size for the source IP within a 20-second window.,float,statistical
+IP_Src_20_Var,Variance of packet sizes for the source IP within a 20-second window.,float,statistical
+IP_Src_25_Count,Number of packets from the source IP within a 25-second window.,int,statistical
+IP_Src_25_Mean,Mean packet size for the source IP within a 25-second window.,float,statistical
+IP_Src_25_Var,Variance of packet sizes for the source IP within a 25-second window.,float,statistical
+IP_Src_30_Count,Number of packets from the source IP within a 30-second window.,int,statistical
+IP_Src_30_Mean,Mean packet size for the source IP within a 30-second window.,float,statistical
+IP_Src_30_Var,Variance of packet sizes for the source IP within a 30-second window.,float,statistical
+IP_Src_35_Count,Number of packets from the source IP within a 35-second window.,int,statistical
+IP_Src_35_Mean,Mean packet size for the source IP within a 35-second window.,float,statistical
+IP_Src_35_Var,Variance of packet sizes for the source IP within a 35-second window.,float,statistical
+IP_Src_40_Count,Number of packets from the source IP within a 40-second window.,int,statistical
+IP_Src_40_Mean,Mean packet size for the source IP within a 40-second window.,float,statistical
+IP_Src_40_Var,Variance of packet sizes for the source IP within a 40-second window.,float,statistical
+IP_Src_45_Count,Number of packets from the source IP within a 45-second window.,int,statistical
+IP_Src_45_Mean,Mean packet size for the source IP within a 45-second window.,float,statistical
+IP_Src_45_Var,Variance of packet sizes for the source IP within a 45-second window.,float,statistical
+IP_Src_50_Count,Number of packets from the source IP within a 50-second window.,int,statistical
+IP_Src_50_Mean,Mean packet size for the source IP within a 50-second window.,float,statistical
+IP_Src_50_Var,Variance of packet sizes for the source IP within a 50-second window.,float,statistical
+IP_Src_55_Count,Number of packets from the source IP within a 55-second window.,int,statistical
+IP_Src_55_Mean,Mean packet size for the source IP within a 55-second window.,float,statistical
+IP_Src_55_Var,Variance of packet sizes for the source IP within a 55-second window.,float,statistical
+IP_Src_60_Count,Number of packets from the source IP within a 60-second window.,int,statistical
+IP_Src_60_Mean,Mean packet size for the source IP within a 60-second window.,float,statistical
+IP_Src_60_Var,Variance of packet sizes for the source IP within a 60-second window.,float,statistical
+IP_Src_MAC_1_Count,Number of packets from the source IP-MAC pair within a 1-second window.,int,statistical
+IP_Src_MAC_1_Mean,Mean packet size for the source IP-MAC pair within a 1-second window.,float,statistical
+IP_Src_MAC_1_Var,Variance of packet sizes for the source IP-MAC pair within a 1-second window.,float,statistical
+IP_Src_MAC_5_Count,Number of packets from the source IP-MAC pair within a 5-second window.,int,statistical
+IP_Src_MAC_5_Mean,Mean packet size for the source IP-MAC pair within a 5-second window.,float,statistical
+IP_Src_MAC_5_Var,Variance of packet sizes for the source IP-MAC pair within a 5-second window.,float,statistical
+IP_Src_MAC_10_Count,Number of packets from the source IP-MAC pair within a 10-second window.,int,statistical
+IP_Src_MAC_10_Mean,Mean packet size for the source IP-MAC pair within a 10-second window.,float,statistical
+IP_Src_MAC_10_Var,Variance of packet sizes for the source IP-MAC pair within a 10-second window.,float,statistical
+IP_Src_MAC_15_Count,Number of packets from the source IP-MAC pair within a 15-second window.,int,statistical
+IP_Src_MAC_15_Mean,Mean packet size for the source IP-MAC pair within a 15-second window.,float,statistical
+IP_Src_MAC_15_Var,Variance of packet sizes for the source IP-MAC pair within a 15-second window.,float,statistical
+IP_Src_MAC_20_Count,Number of packets from the source IP-MAC pair within a 20-second window.,int,statistical
+IP_Src_MAC_20_Mean,Mean packet size for the source IP-MAC pair within a 20-second window.,float,statistical
+IP_Src_MAC_20_Var,Variance of packet sizes for the source IP-MAC pair within a 20-second window.,float,statistical
+IP_Src_MAC_25_Count,Number of packets from the source IP-MAC pair within a 25-second window.,int,statistical
+IP_Src_MAC_25_Mean,Mean packet size for the source IP-MAC pair within a 25-second window.,float,statistical
+IP_Src_MAC_25_Var,Variance of packet sizes for the source IP-MAC pair within a 25-second window.,float,statistical
+IP_Src_MAC_30_Count,Number of packets from the source IP-MAC pair within a 30-second window.,int,statistical
+IP_Src_MAC_30_Mean,Mean packet size for the source IP-MAC pair within a 30-second window.,float,statistical
+IP_Src_MAC_30_Var,Variance of packet sizes for the source IP-MAC pair within a 30-second window.,float,statistical
+IP_Src_MAC_35_Count,Number of packets from the source IP-MAC pair within a 35-second window.,int,statistical
+IP_Src_MAC_35_Mean,Mean packet size for the source IP-MAC pair within a 35-second window.,float,statistical
+IP_Src_MAC_35_Var,Variance of packet sizes for the source IP-MAC pair within a 35-second window.,float,statistical
+IP_Src_MAC_40_Count,Number of packets from the source IP-MAC pair within a 40-second window.,int,statistical
+IP_Src_MAC_40_Mean,Mean packet size for the source IP-MAC pair within a 40-second window.,float,statistical
+IP_Src_MAC_40_Var,Variance of packet sizes for the source IP-MAC pair within a 40-second window.,float,statistical
+IP_Src_MAC_45_Count,Number of packets from the source IP-MAC pair within a 45-second window.,int,statistical
+IP_Src_MAC_45_Mean,Mean packet size for the source IP-MAC pair within a 45-second window.,float,statistical
+IP_Src_MAC_45_Var,Variance of packet sizes for the source IP-MAC pair within a 45-second window.,float,statistical
+IP_Src_MAC_50_Count,Number of packets from the source IP-MAC pair within a 50-second window.,int,statistical
+IP_Src_MAC_50_Mean,Mean packet size for the source IP-MAC pair within a 50-second window.,float,statistical
+IP_Src_MAC_50_Var,Variance of packet sizes for the source IP-MAC pair within a 50-second window.,float,statistical
+IP_Src_MAC_55_Count,Number of packets from the source IP-MAC pair within a 55-second window.,int,statistical
+IP_Src_MAC_55_Mean,Mean packet size for the source IP-MAC pair within a 55-second window.,float,statistical
+IP_Src_MAC_55_Var,Variance of packet sizes for the source IP-MAC pair within a 55-second window.,float,statistical
+IP_Src_MAC_60_Count,Number of packets from the source IP-MAC pair within a 60-second window.,int,statistical
+IP_Src_MAC_60_Mean,Mean packet size for the source IP-MAC pair within a 60-second window.,float,statistical
+IP_Src_MAC_60_Var,Variance of packet sizes for the source IP-MAC pair within a 60-second window.,float,statistical
+Channel_1_Count,Number of packets in a channel (src IP to dst IP) within a 1-second window.,int,statistical
+Channel_1_Mean,Mean packet size in a channel within a 1-second window.,float,statistical
+Channel_1_Var,Variance of packet sizes in a channel within a 1-second window.,float,statistical
+Channel_5_Count,Number of packets in a channel within a 5-second window.,int,statistical
+Channel_5_Mean,Mean packet size in a channel within a 5-second window.,float,statistical
+Channel_5_Var,Variance of packet sizes in a channel within a 5-second window.,float,statistical
+Channel_10_Count,Number of packets in a channel within a 10-second window.,int,statistical
+Channel_10_Mean,Mean packet size in a channel within a 10-second window.,float,statistical
+Channel_10_Var,Variance of packet sizes in a channel within a 10-second window.,float,statistical
+Channel_15_Count,Number of packets in a channel within a 15-second window.,int,statistical
+Channel_15_Mean,Mean packet size in a channel within a 15-second window.,float,statistical
+Channel_15_Var,Variance of packet sizes in a channel within a 15-second window.,float,statistical
+Channel_20_Count,Number of packets in a channel within a 20-second window.,int,statistical
+Channel_20_Mean,Mean packet size in a channel within a 20-second window.,float,statistical
+Channel_20_Var,Variance of packet sizes in a channel within a 20-second window.,float,statistical
+Channel_25_Count,Number of packets in a channel within a 25-second window.,int,statistical
+Channel_25_Mean,Mean packet size in a channel within a 25-second window.,float,statistical
+Channel_25_Var,Variance of packet sizes in a channel within a 25-second window.,float,statistical
+Channel_30_Count,Number of packets in a channel within a 30-second window.,int,statistical
+Channel_30_Mean,Mean packet size in a channel within a 30-second window.,float,statistical
+Channel_30_Var,Variance of packet sizes in a channel within a 30-second window.,float,statistical
+Channel_35_Count,Number of packets in a channel within a 35-second window.,int,statistical
+Channel_35_Mean,Mean packet size in a channel within a 35-second window.,float,statistical
+Channel_35_Var,Variance of packet sizes in a channel within a 35-second window.,float,statistical
+Channel_40_Count,Number of packets in a channel within a 40-second window.,int,statistical
+Channel_40_Mean,Mean packet size in a channel within a 40-second window.,float,statistical
+Channel_40_Var,Variance of packet sizes in a channel within a 40-second window.,float,statistical
+Channel_45_Count,Number of packets in a channel within a 45-second window.,int,statistical
+Channel_45_Mean,Mean packet size in a channel within a 45-second window.,float,statistical
+Channel_45_Var,Variance of packet sizes in a channel within a 45-second window.,float,statistical
+Channel_50_Count,Number of packets in a channel within a 50-second window.,int,statistical
+Channel_50_Mean,Mean packet size in a channel within a 50-second window.,float,statistical
+Channel_50_Var,Variance of packet sizes in a channel within a 50-second window.,float,statistical
+Channel_55_Count,Number of packets in a channel within a 55-second window.,int,statistical
+Channel_55_Mean,Mean packet size in a channel within a 55-second window.,float,statistical
+Channel_55_Var,Variance of packet sizes in a channel within a 55-second window.,float,statistical
+Channel_60_Count,Number of packets in a channel within a 60-second window.,int,statistical
+Channel_60_Mean,Mean packet size in a channel within a 60-second window.,float,statistical
+Channel_60_Var,Variance of packet sizes in a channel within a 60-second window.,float,statistical
+Stream_Jitter_1_Sum,Sum of jitter values in a stream within a 1-second window.,float,statistical
+Stream_Jitter_1_Mean,Mean jitter in a stream within a 1-second window.,float,statistical
+Stream_Jitter_1_Var,Variance of jitter values in a stream within a 1-second window.,float,statistical
+Stream_Jitter_5_Sum,Sum of jitter values in a stream within a 5-second window.,float,statistical
+Stream_Jitter_5_Mean,Mean jitter in a stream within a 5-second window.,float,statistical
+Stream_Jitter_5_Var,Variance of jitter values in a stream within a 5-second window.,float,statistical
+Stream_Jitter_10_Sum,Sum of jitter values in a stream within a 10-second window.,float,statistical
+Stream_Jitter_10_Mean,Mean jitter in a stream within a 10-second window.,float,statistical
+Stream_Jitter_10_Var,Variance of jitter values in a stream within a 10-second window.,float,statistical
+Stream_Jitter_15_Sum,Sum of jitter values in a stream within a 15-second window.,float,statistical
+Stream_Jitter_15_Mean,Mean jitter in a stream within a 15-second window.,float,statistical
+Stream_Jitter_15_Var,Variance of jitter values in a stream within a 15-second window.,float,statistical
+Stream_Jitter_20_Sum,Sum of jitter values in a stream within a 20-second window.,float,statistical
+Stream_Jitter_20_Mean,Mean jitter in a stream within a 20-second window.,float,statistical
+Stream_Jitter_20_Var,Variance of jitter values in a stream within a 20-second window.,float,statistical
+Stream_Jitter_25_Sum,Sum of jitter values in a stream within a 25-second window.,float,statistical
+Stream_Jitter_25_Mean,Mean jitter in a stream within a 25-second window.,float,statistical
+Stream_Jitter_25_Var,Variance of jitter values in a stream within a 25-second window.,float,statistical
+Stream_Jitter_30_Sum,Sum of jitter values in a stream within a 30-second window.,float,statistical
+Stream_Jitter_30_Mean,Mean jitter in a stream within a 30-second window.,float,statistical
+Stream_Jitter_30_Var,Variance of jitter values in a stream within a 30-second window.,float,statistical
+Stream_Jitter_35_Sum,Sum of jitter values in a stream within a 35-second window.,float,statistical
+Stream_Jitter_35_Mean,Mean jitter in a stream within a 35-second window.,float,statistical
+Stream_Jitter_35_Var,Variance of jitter values in a stream within a 35-second window.,float,statistical
+Stream_Jitter_40_Sum,Sum of jitter values in a stream within a 40-second window.,float,statistical
+Stream_Jitter_40_Mean,Mean jitter in a stream within a 40-second window.,float,statistical
+Stream_Jitter_40_Var,Variance of jitter values in a stream within a 40-second window.,float,statistical
+Stream_Jitter_45_Sum,Sum of jitter values in a stream within a 45-second window.,float,statistical
+Stream_Jitter_45_Mean,Mean jitter in a stream within a 45-second window.,float,statistical
+Stream_Jitter_45_Var,Variance of jitter values in a stream within a 45-second window.,float,statistical
+Stream_Jitter_50_Sum,Sum of jitter values in a stream within a 50-second window.,float,statistical
+Stream_Jitter_50_Mean,Mean jitter in a stream within a 50-second window.,float,statistical
+Stream_Jitter_50_Var,Variance of jitter values in a stream within a 50-second window.,float,statistical
+Stream_Jitter_55_Sum,Sum of jitter values in a stream within a 55-second window.,float,statistical
+Stream_Jitter_55_Mean,Mean jitter in a stream within a 55-second window.,float,statistical
+Stream_Jitter_55_Var,Variance of jitter values in a stream within a 55-second window.,float,statistical
+Stream_Jitter_60_Sum,Sum of jitter values in a stream within a 60-second window.,float,statistical
+Stream_Jitter_60_Mean,Mean jitter in a stream within a 60-second window.,float,statistical
+Stream_Jitter_60_Var,Variance of jitter values in a stream within a 60-second window.,float,statistical
+**Ethernet Layer**,,,
+Ether_type,"Ethernet frame type (e.g., 0x0800 for IPv4, 0x86DD for IPv6).",int,protocol-based
+Ether_src,Source MAC address of the Ethernet frame.,str,packet-based
+Ether_dst,Destination MAC address of the Ethernet frame.,str,packet-based
+Ether_Size,Size of the Ethernet frame in bytes.,int,packet-based
+Ether_Src_OUI,Organizationally Unique Identifier of the source MAC address.,str,packet-based
+Ether_Dst_OUI,Organizationally Unique Identifier of the destination MAC address.,str,packet-based
+**LLC Layer**,,,
+LLC_dsap,Destination Service Access Point in the LLC header.,int,protocol-based
+LLC_ssap,Source Service Access Point in the LLC header.,int,protocol-based
+LLC_ctrl,Control field in the LLC header.,int,protocol-based
+**IP Layer**,,,
+IP_version,"IP version (4 for IPv4, 6 for IPv6).",int,protocol-based
+IP_ihl,Internet Header Length (in 32-bit words).,int,protocol-based
+IP_tos,Type of Service field.,int,protocol-based
+IP_len,Total length of the IP packet.,int,packet-based
+IP_id,Identification field for packet fragmentation.,int,packet-based
+IP_flags,"IP flags (e.g., Don't Fragment, More Fragments).",int,protocol-based
+IP_Z,Zero flag (1 if set).,int,protocol-based
+IP_MF,More Fragments flag (1 if set).,int,protocol-based
+IP_DF,Don't Fragment flag (1 if set).,int,protocol-based
+IP_frag,Fragment offset field.,int,protocol-based
+IP_ttl,Time to Live field.,int,protocol-based
+IP_proto,"Protocol number of the next layer (e.g., 6 for TCP, 17 for UDP).",int,protocol-based
+IP_chksum,IP header checksum.,int,packet-based
+IP_options,Indicator of IP options presence (1 if present).,int,protocol-based
+IP_add_count,Number of unique destination IP addresses for the device.,int,behavioral
+IP_src,Source IP address.,str,packet-based
+IP_dst,Destination IP address.,str,packet-based
+IP_padding,Length of padding in the IP packet.,int,packet-based
+IP_ralert,Router Alert option indicator (1 if present).,int,protocol-based
+TTL_default,Default Time to Live value (same as IP_ttl).,int,protocol-based
+Multicast,Indicator of multicast destination IP (1 if starts with 224.).,int,protocol-based
+IP_Dst_Entropy,Shannon entropy of destination IP address distribution.,float,behavioral
+**TCP Layer**,,,
+TCP_sport,TCP source port.,int,packet-based
+TCP_dport,TCP destination port.,int,packet-based
+TCP_seq,TCP sequence number.,int,protocol-based
+TCP_ack,TCP acknowledgment number.,int,protocol-based
+TCP_dataofs,Data offset (header length in 32-bit words).,int,protocol-based
+TCP_reserved,Reserved bits in the TCP header.,int,protocol-based
+TCP_flags,TCP flags as an integer.,int,protocol-based
+TCP_FIN,FIN flag (1 if set).,int,protocol-based
+TCP_SYN,SYN flag (1 if set).,int,protocol-based
+TCP_RST,RST flag (1 if set).,int,protocol-based
+TCP_PSH,PSH flag (1 if set).,int,protocol-based
+TCP_ACK,ACK flag (1 if set).,int,protocol-based
+TCP_URG,URG flag (1 if set).,int,protocol-based
+TCP_ECE,ECE flag (1 if set).,int,protocol-based
+TCP_CWR,CWR flag (1 if set).,int,protocol-based
+TCP_w_size,TCP window size.,int,protocol-based
+TCP_chksum,TCP checksum.,int,packet-based
+TCP_urgptr,TCP urgent pointer.,int,protocol-based
+TCP_options,Indicator of TCP options presence (1 if present).,int,protocol-based
+TCP_response,Indicator of TCP response packet (1 if ACK flag set).,int,protocol-based
+TCP_mss_values,Maximum Segment Size value from TCP options.,int,protocol-based
+TCP_window_scaling,Window scaling factor from TCP options.,int,protocol-based
+TCP_Retrans_Rate,Rate of TCP retransmissions for the device.,float,behavioral
+Portcl_src,Source port class (based on predefined port list or ranges).,int,behavioral
+Portcl_dst,Destination port class (based on predefined port list or ranges).,int,behavioral
+sport23,"Source port categorization (0-1023, 1024-49151, 49152-65535).",int,behavioral
+dport23,"Destination port categorization (0-1023, 1024-49151, 49152-65535).",int,behavioral
+sport_bare,Raw source port number.,int,packet-based
+dport_bare,Raw destination port number.,int,packet-based
+**UDP Layer**,,,
+UDP_sport,UDP source port.,int,packet-based
+UDP_dport,UDP destination port.,int,packet-based
+UDP_len,Length of the UDP packet (including header and data).,int,packet-based
+UDP_chksum,UDP checksum.,int,packet-based
+**ICMP Layer**,,,
+ICMP_type,ICMP message type.,int,protocol-based
+ICMP_code,ICMP message code.,int,protocol-based
+ICMP_chksum,ICMP checksum.,int,packet-based
+ICMP_id,ICMP identifier (for Echo Request/Reply).,int,protocol-based
+ICMP_seq,ICMP sequence number (for Echo Request/Reply).,int,protocol-based
+ICMP_ts_ori,Originate timestamp for ICMP Timestamp messages.,int,protocol-based
+ICMP_ts_rx,Receive timestamp for ICMP Timestamp messages.,int,protocol-based
+ICMP_ts_tx,Transmit timestamp for ICMP Timestamp messages.,int,protocol-based
+ICMP_ptr,Pointer field for ICMP Parameter Problem messages.,int,protocol-based
+ICMP_reserved,Reserved field in ICMP header.,int,protocol-based
+ICMP_length,Length field in ICMP header (for IPv6).,int,protocol-based
+ICMP_nexthopmtu,Next-hop MTU for ICMP Destination Unreachable messages.,int,protocol-based
+ICMP_unused,Unused field in ICMP header.,int,protocol-based
+ICMP_Chksum_Status,Status of ICMP checksum validation (1 for valid).,int,protocol-based
+ICMP_Data_Size,Size of the ICMP payload data.,int,packet-based
+**ICMPv6 Layer**,,,
+ICMP6_type,ICMPv6 message type.,int,protocol-based
+ICMP6_code,ICMPv6 message code.,int,protocol-based
+ICMP6_chksum,ICMPv6 checksum.,int,packet-based
+**BOOTP Layer**,,,
+BOOTP_op,"BOOTP operation code (1 for request, 2 for reply).",int,protocol-based
+BOOTP_htype,"Hardware type (e.g., 1 for Ethernet).",int,protocol-based
+BOOTP_hlen,Hardware address length.,int,protocol-based
+BOOTP_hops,Number of hops.,int,protocol-based
+BOOTP_xid,Transaction ID.,int,protocol-based
+BOOTP_secs,Seconds elapsed since client began address acquisition.,int,protocol-based
+BOOTP_flags,BOOTP flags.,int,protocol-based
+BOOTP_sname,Server name (string).,str,protocol-based
+BOOTP_file,Boot file name (string).,str,protocol-based
+BOOTP_options,Indicator of BOOTP options presence (1 if present).,int,protocol-based
+**DNS Layer**,,,
+DNS_length,Length of the DNS packet.,int,packet-based
+DNS_id,DNS transaction ID.,int,protocol-based
+DNS_qr,"Query/Response flag (0 for query, 1 for response).",int,protocol-based
+DNS_opcode,"Operation code (e.g., 0 for query).",int,protocol-based
+DNS_aa,Authoritative Answer flag (1 if set).,int,protocol-based
+DNS_tc,Truncation flag (1 if set).,int,protocol-based
+DNS_rd,Recursion Desired flag (1 if set).,int,protocol-based
+DNS_ra,Recursion Available flag (1 if set).,int,protocol-based
+DNS_z,Reserved field (Z flag).,int,protocol-based
+DNS_ad,Authentic Data flag (1 if set).,int,protocol-based
+DNS_cd,Checking Disabled flag (1 if set).,int,protocol-based
+DNS_rcode,"Response code (e.g., 0 for no error).",int,protocol-based
+DNS_qdcount,Number of questions in the DNS packet.,int,protocol-based
+DNS_ancount,Number of answers in the DNS packet.,int,protocol-based
+DNS_nscount,Number of authority records in the DNS packet.,int,protocol-based
+DNS_arcount,Number of additional records in the DNS packet.,int,protocol-based
+DNS_query,DNS query name (string).,str,protocol-based
+DNS_ttl,Time to Live for DNS answers.,int,protocol-based
+DNS_Server,IP address of the DNS server (source or destination based on qr).,str,packet-based
+DNS_Query_Type,"Type of DNS query (e.g., 1 for A, 28 for AAAA).",int,protocol-based
+DNS_Query_Len,Length of the DNS query section.,int,packet-based
+DNS_Answer_Len,Total length of DNS answer sections.,int,packet-based
+DNS_Interval,Time interval since the last DNS packet for the device.,float,behavioral
+MDNS,Indicator of Multicast DNS usage (1 if port 5353).,int,protocol-based
+**HTTP Layer**,,,
+HTTP_method,"HTTP request method (e.g., GET, POST).",str,protocol-based
+HTTP_user_agent,HTTP User-Agent string.,str,protocol-based
+HTTP_host,HTTP Host header value.,str,protocol-based
+HTTP_URI,HTTP request URI.,str,protocol-based
+HTTP_Content_Len,Length of HTTP content (from Content-Length header).,int,protocol-based
+HTTP_status,"HTTP response status code (e.g., 200, 404).",int,protocol-based
+HTTP_content_type,HTTP Content-Type header value.,str,protocol-based
+**TLS Layer**,,,
+TLS_version,"TLS version from ClientHello (e.g., 0x0303 for TLS 1.2).",str,protocol-based
+TLS_cipher_suites,Comma-separated list of cipher suites in ClientHello.,str,protocol-based
+TLS_ja3,"JA3 fingerprint (version,ciphers,extensions).",str,behavioral
+TLS_server_version,TLS version from ServerHello.,str,protocol-based
+TLS_selected_cipher,Selected cipher suite from ServerHello.,str,protocol-based
+TLS_Server,Indicator of TLS ServerHello packet (1 if present).,int,protocol-based
+TLS_Cipher_Suites_Len,Number of cipher suites in ClientHello.,int,protocol-based
+TLS_Extensions_Len,Number of extensions in ClientHello.,int,protocol-based
+TLS_Sig_Hash_Alg_Len,Number of signature hash algorithms in ClientHello.,int,protocol-based
+HTTP_cert,Indicator of TLS certificate presence (1 if present).,int,protocol-based
+HTTPS,Indicator of HTTPS usage (1 if port 443).,int,protocol-based
+**EAPOL Layer**,,,
+EAPOL_version,EAPOL protocol version.,int,protocol-based
+EAPOL_type,"EAPOL packet type (e.g., 0 for EAP Packet).",int,protocol-based
+EAPOL_len,Length of the EAPOL packet.,int,packet-based
+**DHCP Layer**,,,
+DHCP_options,Indicator of DHCP options presence (1 if present).,int,protocol-based
+**STUN Layer**,,,
+STUN_method,STUN method type (from first two bytes of payload).,int,protocol-based
+**MQTT Layer**,,,
+MQTT_type,"MQTT message type (e.g., 1 for CONNECT, 3 for PUBLISH).",int,protocol-based
+MQTT_topics,MQTT topic name (for PUBLISH or SUBSCRIBE messages).,str,protocol-based
+**RTSP Layer**,,,
+RTSP_method,"RTSP method (e.g., OPTIONS, DESCRIBE, SETUP).",str,protocol-based
+**SSDP Layer**,,,
+SSDP,Indicator of SSDP usage (1 if port 1900).,int,protocol-based
+**NTP Layer**,,,
+NTP,Indicator of NTP usage (1 if port 123).,int,protocol-based
+NTP_Interval,Time interval since the last NTP packet for the device.,float,behavioral
+**ARP Layer**,,,
