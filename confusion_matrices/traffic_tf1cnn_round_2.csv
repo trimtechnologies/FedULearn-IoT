@@ -1,0 +1,5 @@
+,Port Scan,SYN Flood,SlowLoris,Vul Scan
+Port Scan,33348,1,64,541
+SYN Flood,4,38248,7,9
+SlowLoris,1,1,8317,5
+Vul Scan,1090,13,158,31448
